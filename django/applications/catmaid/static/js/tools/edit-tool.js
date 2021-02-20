@@ -99,6 +99,17 @@
         }));
     }
 
+    editToolActions.push(
+      new CATMAID.Action({
+        helpText: "Show painting tool",
+        buttonID: "edit_button_painting",
+        buttonName: 'paintingtool',
+        run: function (e) {
+          project.setTool( new CATMAID.PaintingTool() );
+          return true;
+        }
+      }));
+
     return editToolActions;
   };
 

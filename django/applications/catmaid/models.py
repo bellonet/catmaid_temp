@@ -1978,3 +1978,20 @@ class DeepLinkStackGroup(NonCascadingUserFocusedModel):
 
     class Meta:
         db_table = "catmaid_deep_link_stack_group"
+
+
+class PaintLabel(UserFocusedModel):
+    location_x = models.FloatField()
+    location_y = models.FloatField()
+    location_z = models.FloatField()
+
+    label_id = models.IntegerField()
+    needs_edit = models.BooleanField()
+    to_delete = models.BooleanField()
+    comment = models.TextField()
+    name = models.TextField()
+
+
+
+    class Meta:
+        db_table = "paint_label"

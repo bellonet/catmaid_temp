@@ -17,7 +17,7 @@ from catmaid.control import (authentication, user, group, log, message, client,
         classification, notifications, roi, clustering, volume, noop,
         useranalytics, user_evaluation, search, graphexport, transaction,
         graph2, circles, analytics, review, wiringdiagram, object, sampler,
-        similarity, nat, origin, point, landmarks, pointcloud, pointset)
+        similarity, nat, origin, point, landmarks, pointcloud, pointset, painting)
 
 from catmaid.history import record_request_action as record_view
 from catmaid.views import CatmaidView
@@ -631,4 +631,10 @@ urlpatterns += [
     url(r'^dvid/(?P<project_id>.+)/annotations/$', noop.list_annotations),
     url(r'^dvid/(?P<project_id>.+)/annotations/query-targets$', noop.query_annotation_targets),
     url(r'^dvid/client/datastores/(?P<name>[\w-]+)/$', noop.datastore_settings),
+]
+
+# Painting tool
+urlpatterns += [
+    url(r'^(?P<project_id>\d+)/painting/get$', painting.get_paints),
+    url(r'^(?P<project_id>\d+)/painting/update$', painting.update_paints),
 ]
