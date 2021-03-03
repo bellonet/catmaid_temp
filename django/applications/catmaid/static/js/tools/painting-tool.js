@@ -25,7 +25,8 @@
         let xzyPosition = getMouseDownStackPosition(e);
 
         // get label layer pixel value:
-        project.getStackViewers()[0].getLayer("StackLayer1").pixelValueInScaleLevel(xzyPosition[0], xzyPosition[1], xzyPosition[2]).then( function(labelID) { 
+        var label_layer_name = project.getStackViewers()[0].getLayerOrder()[1];
+        project.getStackViewers()[0].getLayer(label_layer_name).pixelValueInScaleLevel(xzyPosition[0], xzyPosition[1], xzyPosition[2]).then( function(labelID) { 
 
           // get all label ids existing in paint tool widget table:
           var table_labels = $('.paint_lbl').map((_,el) => el.innerText).get();
